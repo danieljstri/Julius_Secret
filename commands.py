@@ -7,11 +7,3 @@ def percentage_per_item(array):
         percentage_dict[item] = percentage * 100
     return percentage_dict
     
-
-minhalista = ['maçã', 'uva', 'pera', 'melancia', 'melancia', 'melancia', 'maçã', 'maçã', 'pera']
-
-porcentagens = percentage_per_item(minhalista)
-
-valores = porcentagens.values()
-for valor in valores:
-    print(valor)

@@ -18,13 +18,12 @@ percenteges = percentage_per_item(category_list)
 plt.figure(figsize=(10, 4))
 
 plt.subplot(1, 2, 1)
-plt.pie(percenteges, labels = percenteges)
+plt.pie(percenteges.values(), labels = countedcategory)
 plt.title('pizza')
 
 plt.subplot(1, 2, 2)
 plt.plot(countedcategory)
 plt.title('linhas')
 
-print(type(countedcategory))
 
 plt.show()
