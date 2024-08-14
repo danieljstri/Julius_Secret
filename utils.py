@@ -6,3 +6,6 @@ def to_percentages(values):
         percentage_dict[value] = percentage
     return percentage_dict
 
+def expenses_per_week(expenses, weeks):
+    expenses_per_week = {}
+    
