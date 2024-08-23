@@ -3,7 +3,7 @@ import matplotlib as mpl
 mpl.use('Agg')  # Use 'Agg' backend for non-interactive plotting
 import matplotlib.pyplot as plt
 import pandas as pd
-from utils import to_percentages
+from utils import to_percentages, expenses_per_week
 from keys import FILE_PATH
 import io
 
@@ -13,6 +13,7 @@ app = Flask(__name__)
 def index():
     file = pd.read_csv(FILE_PATH)
     column = file['category']
+    column_list = column.to_list()
     percentage_dict = to_percentages(column.tolist())
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(10, 5))
 
@@ -25,7 +26,8 @@ def index():
     img = io.BytesIO()
     fig.savefig(img, format='png')
     img.seek(0)
-
+    exprenses = expenses_per_week(file_path=FILE_PATH, column_list=column_list)
+    print(exprenses)
     return send_file(img, mimetype='image/png')
 
 if __name__ == '__main__':
